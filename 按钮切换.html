@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button class="btn2">取消</button>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    var flag=-1;
+    $('.btn2').click(function(){
+        if(flag==-1){
+            $(this).html("查看详情");
+            flag=1;
+        }else{
+            $(this).html("取消");
+            flag=-1;
+        }
+    });
+</script>
+</body>
+</html>

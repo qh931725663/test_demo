@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id='div1'>
+</div>
+<input type='button' value='添加' onclick='add()'/>
+<input type='button' value='删除' onclick='del()'/>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    var num=1;
+    function add(){
+        var div = $("#div1");
+        div.append("<input type='button' value='"+num+"'/>");
+        num++;
+    }
+    function del(){
+        var div = $("#div1 input");
+        if(div.length>1){
+            console.log(div[0]);
+            div[0].remove();
+            num--;
+        }
+    }
+</script>
+</body>
+</html>

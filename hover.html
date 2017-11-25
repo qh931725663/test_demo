@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div1,.div2{width:100px;height:100px;}
+        .div1{background: red;cursor: pointer;}
+        .div2{background: green;display: none;}
+        .aa{height:1000px;margin-top: 100px;}
+    </style>
+</head>
+<body>
+<div class="div1"></div>
+<div class="div2"></div>
+<div class="aa">sasasas</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    $(function(){
+        $(".div1").hover(
+            function(){/*鼠标移入*/
+                $(".div2").show(1000);
+            }
+            ,function(){/*鼠标移出*/
+                $(".div2").hide(1000);
+        });
+    })
+</script>
+</body>
+</html>

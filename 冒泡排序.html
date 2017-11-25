@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡排序</title>
+</head>
+<body>
+<sript src="js/jquery-min.js"></sript>
+<script>
+    function paixu(shuzu){
+        for (var i = 0; i < shuzu.length; i++) {
+            for (var j = i+1; j < shuzu.length; j++) {
+                if (shuzu[i]>shuzu[j]) {
+                    var temp = shuzu[i];
+                    shuzu[i] = shuzu[j];
+                    shuzu[j] = temp;
+                }
+            }
+        }
+        return shuzu;
+    }
+    var shuzu=[20,5,40,33,44,76,55];
+    var arr=paixu(shuzu);
+    console.log(arr);
+</script>
+</body>
+</html>

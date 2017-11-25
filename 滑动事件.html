@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body style="height: 1743px;">
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    //滑动处理
+    var startX, startY, moveEndX, moveEndY, X, Y;
+
+    $('body').on('touchstart',function(e) {
+        var _touch = e.originalEvent.targetTouches[0];
+        startX= _touch.pageX;
+        startY= _touch.pageY;
+    });
+    $('body').on('touchmove', function(e) {
+        var _touch2 = e.originalEvent.targetTouches[0];
+        moveEndX= _touch2.pageX;
+        moveEndY= _touch2.pageY;
+        X = moveEndX - startX;
+        Y = moveEndY - startY;
+
+        if (Math.abs(Y) > Math.abs(X) && Y > 0) {
+            alert("向下");
+        }
+    });
+
+</script>
+</body>
+</html>

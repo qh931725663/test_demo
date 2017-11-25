@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+<html>
+<head> 
+	<title></title> 
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
+	<meta charset="GBK"/>
+	<link rel="stylesheet" href="css/jquery.mobile.min.css" />
+	<link rel="stylesheet" href="css/theme/theme.min.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<!-- <link rel="stylesheet" href="css/styles-custom.css" /> -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/mobileinit.js"></script>
+	<script src="js/jquery.mobile.min.js"></script>
+	<script src="js/fastclick.js"></script> 
+</head> 
+<body>
+	<!-- page -->
+	<div data-role="page" id="fpmxListPage" data-iscroll="enable">
+		<link rel="stylesheet" href="css/pull.css" />
+		<script type="text/javascript" charset="utf-8" src="js/iscroll.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/initScroll.js"></script>
+		<script type="text/javascript">
+			$(document).bind("pageinit", function() {
+				isInit=0;
+				serverURL = "11"; //服务器地址
+				startNum = 1;//当前页
+				count = 5; //总页数
+			});
+		</script>
+		<!-- content-->
+		<div data-role="content" >
+			<div id="wrapperIndex" class="wrapper" >
+				<div id="scrollerIndex" class="scroller">
+					<div id="pullDown" >
+						<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>
+					</div>
+					<div class="container">
+						<p class="line-align-left" style="padding: 0 10px;color: #A6A6A6;height: 40px;">
+							<img src="../../common/image/myhealth/_radius_01.png" alt="" style="width: 10px;"/>
+							<span style="font-size: 17px;color: #3D3D3D;display: inline-block;width: 80%;text-align: center;">血压数据</span>
+							<select name="" id="" style="border: 0px;float: left;">
+								<option value="">2017-08-09</option>
+								<option value="">2017-08-09</option>
+								<option value="">2017-08-09</option>
+								<option value="">2017-08-09</option>
+							</select>
+						</p>
+						<div class="blood-data-show">
+							<dl>
+								<dt>2017-02</dt>
+								<dd>
+									<ul >
+										<li class="line-align-left"><img src="../../common/image/myhealth/morning_01.png" alt="" style="width: 10%;"/><span style="margin-left: 30px;font-size: 14px;">02-15 08:30</span><span style="margin-left: 70px;font-size: 17px;">135/86 mmHg</span></li>
+										<li class="line-align-left"><img src="../../common/image/myhealth/afternoon_01.png" alt="" style="width: 10%;"/><span style="margin-left: 30px;font-size: 14px;">02-12 08:30</span><span style="margin-left: 70px;font-size: 17px;">135/86 mmHg</span></li>
+										<li class="line-align-left"><img src="../../common/image/myhealth/nigth_01.png" alt="" style="width: 10%;"/><span style="margin-left: 30px;font-size: 14px;">02-10 08:30</span><span style="margin-left: 70px;font-size: 17px;">135/86 mmHg</span></li>
+									</ul>
+								</dd>
+							</dl>
+							<dl>
+								<dt>2017-02</dt>
+								<dd>
+									<ul>
+										<li class="line-align-left"><img src="../../common/image/myhealth/morning_01.png" alt="" style="width: 10%;"/><span style="margin-left: 30px;font-size: 14px;">02-15 08:30</span><span style="margin-left: 70px;font-size: 17px;">135/86 mmHg</span></li>
+										<li class="line-align-left"><img src="../../common/image/myhealth/afternoon_01.png" alt="" style="width: 10%;"/><span style="margin-left: 30px;font-size: 14px;">02-12 08:30</span><span style="margin-left: 70px;font-size: 17px;">135/86 mmHg</span></li>
+										<li class="line-align-left"><img src="../../common/image/myhealth/nigth_01.png" alt="" style="width: 10%;"/><span style="margin-left: 30px;font-size: 14px;">02-10 08:30</span><span style="margin-left: 70px;font-size: 17px;">135/86 mmHg</span></li>
+									</ul>
+								</dd>
+							</dl>
+							<dl>
+								<dt>2017-02</dt>
+								<dd>
+									<ul >
+										<li class="line-align-left"><img src="../../common/image/myhealth/morning_01.png" alt="" style="width: 10%;"/><span style="margin-left: 30px;font-size: 14px;">02-15 08:30</span><span style="margin-left: 70px;font-size: 17px;">135/86 mmHg</span></li>
+										<li class="line-align-left"><img src="../../common/image/myhealth/afternoon_01.png" alt="" style="width: 10%;"/><span style="margin-left: 30px;font-size: 14px;">02-12 08:30</span><span style="margin-left: 70px;font-size: 17px;">135/86 mmHg</span></li>
+										<li class="line-align-left"><img src="../../common/image/myhealth/nigth_01.png" alt="" style="width: 10%;"/><span style="margin-left: 30px;font-size: 14px;">02-10 08:30</span><span style="margin-left: 70px;font-size: 17px;">135/86 mmHg</span></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<div id="pullUp">
+						<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- /page -->
+</body>
+</html>

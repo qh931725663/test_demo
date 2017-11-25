@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数组去重</title>
+    <style>
+        .parent{position: relative;}
+        .child{
+            border: 1px solid red;
+            position: fixed;
+            width: 50%;
+            height: 50%;
+            background: red;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="child">
+    </div>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+$(function(a){
+    console.dir(this);
+    console.log(a)
+}).apply(0);
+
+
+var arr1=[1,2,2,2,3,3,3,4,5,6];
+arr2 = [];
+for(var i = 0;i<arr1.length;i++){
+    if(arr2.indexOf(arr1[i])<0){
+        arr2.push(arr1[i]);
+
+    }
+}
+document.write(arr2);
+
+function Animal(){
+    this.name = "Animal";
+    this.showName = function(){
+        alert(this.name);
+    }
+}
+function Cat(){
+    this.name = "Cat";
+
+}
+var animal = new Animal();
+var cat = new Cat();
+//通过call或apply方法，将原本属于Animal对象的showName()方法交给对象cat来使用了。
+//输入结果为"Cat"
+animal.showName.call(cat,",");
+
+
+var s = "暖";
+var reg = new RegExp("(" + s + ")", "g");
+var str = "CSDN暖枫无敌，暖枫无敌CSDN";
+var newstr = str.replace(reg, "<font color=red>$1</font>");
+document.write(newstr + "<br />");
+</script>
+</body>
+</html>

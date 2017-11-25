@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>js树形菜单-www.jquerycn.cn</title>
+    <link rel="stylesheet" href="v3/css/zTreeStyle/zTreeStyle.css"/>
+</head>
+
+<body>
+<ul id="tree" class="ztree"></ul>
+<br/>
+<input type="button" value="展开全部节点" id="expandAll"/>
+<input type="button" value="获取选在的节点" id="selected"/>
+<script src="v3/js/jquery-1.11.3.js"></script>
+<script src="v3/js/jquery.ztree.all-3.5.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var setting = {
+            view: {
+                dblClickExpand: false,
+                showLine: true,
+                selectedMulti: false
+            },
+            data: {
+                simpleData: {
+                    enable:true,
+                    idKey: "id",
+                    pIdKey: "pId",
+                    rootPId: ""
+                }
+            },
+            callback: {
+                beforeClick: function(treeId, treeNode) {
+                    var zTree = $.fn.zTree.getZTreeObj("tree");
+                    if (treeNode.isParent) {
+                        zTree.expandNode(treeNode);
+                    }
+                },
+                onClick:function(event,treeId,treeNode){
+                    if(treeNode.id > 300){
+                        alert('你点击的节点名称为-->'+treeNode.name);
+                    }else if(treeNode.id == 101 || treeNode.id == 102){
+                        window.location.href=treeNode.url;
+                    }
+                },
+                onCheck:function(event,treeId,treeNode){
+                    alert('你选择的节点名称为-->'+treeNode.name);
+                }
+            },
+            check:{
+                enable:true
+            }
+        };
+
+        var zNodes =[
+            {id:1, pId:0, name:"顶层节点1", open:true},
+            {id:101, pId:1, name:"去百度",url:'http://www.baidu.com',target:'_self'},
+            {id:102, pId:1, name:"去谷歌",url:'http://www.google.com',target:'_top'},
+            {id:103, pId:1, name:"连接线"},
+            {id:104, pId:1, name:"不显示"},
+            {id:105, pId:1, name:"自定义图标"},
+
+
+            {id:2, pId:0, name:"顶层节点2", open:false},
+            {id:201, pId:2, name:"Checkbox 勾选操作"},
+            {id:206, pId:2, name:"Checkbox nocheck 演示"},
+            {id:207, pId:2, name:"Checkbox chkDisabled 演示"},
+            {id:208, pId:2, name:"Checkbox halfCheck 演示"},
+            {id:202, pId:2, name:"Checkbox 勾选统计"},
+            {id:203, pId:2, name:"用 zTree 方法 勾选 Checkbox"},
+            {id:204, pId:2, name:"Radio 勾选操作"},
+
+
+            {id:3, pId:0, name:"顶层节点3", open:false},
+            {id:301, pId:3, name:"拖拽 节点 基本控制", file:"exedit/drag"},
+            {id:302, pId:3, name:"拖拽 节点 高级控制", file:"exedit/drag_super"},
+            {id:303, pId:3, name:"用 zTree 方法 移动 / 复制 节点", file:"exedit/drag_fun"},
+            {id:304, pId:3, name:"基本 增 / 删 / 改 节点", file:"exedit/edit"},
+            {id:305, pId:3, name:"高级 增 / 删 / 改 节点", file:"exedit/edit_super"}
+
+        ];
+
+        var t = $("#tree");
+        t = $.fn.zTree.init(t, setting, zNodes);
+
+        $("#expandAll").bind('click',function(){
+            t.expandAll(true);
+        });
+        $("#selected").bind('click',function(){
+            var nodes = t.getCheckedNodes();
+            console.log(nodes);
+            for(i = 0; i < nodes.length; i++){
+                console.log(nodes[i]);
+            }
+/*            if(nodes.length == 0){
+                alert("你还未选在任何节点");
+            }else{
+                var s = "";
+                for(i = 0; i < nodes.length; i++){
+                    s+= nodes[i].name+" ";
+                }
+                alert("你选择的节点有：\r\n\t"+s);
+            }*/
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div1"></div>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    var arr=["血氧未保存数据", "耳温未保存数据", "肺活量未保存数据", "血氧未保存数据", ""];
+    var html="";
+    for(key in arr){
+        debugger;
+        html+='<span style="margin-left: 10px;">'+arr[key]+'</span>';
+    }
+    $("#div1").append(html);
+</script>
+</body>
+</html>

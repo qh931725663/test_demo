@@ -1,0 +1,304 @@
+﻿<!DOCTYPE HTML>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link rel="Bookmark" href="/favicon.ico" >
+	<link rel="Shortcut Icon" href="/favicon.ico" />
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="/statics/html5shiv.js"></script>
+	<script type="text/javascript" src="/statics/respond.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="/statics/h-ui/css/H-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="/statics/h-ui.admin/css/H-ui.admin.css" />
+	<link rel="stylesheet" type="text/css" href="/statics/Hui-iconfont/1.0.8/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="/statics/h-ui.admin/skin/default/skin.css" id="skin" />
+	<link rel="stylesheet" type="text/css" href="/statics/h-ui.admin/css/style.css" />
+	<!--[if IE 6]>
+	<script type="text/javascript" src="/statics/DD_belatedPNG_0.0.8a-min.js" ></script>
+	<script>DD_belatedPNG.fix('*');</script>
+	<![endif]-->
+	<title>管理员列表</title>
+	<script>
+	    function selecttime(flag) {
+	    if (flag == 1) {
+	    var endTime = $("#datemin").val();
+	    if (endTime != "") {
+	    WdatePicker({dateFmt: 'yyyy-MM-dd', maxDate: endTime})
+	    } else {
+	    WdatePicker({dateFmt: 'yyyy-MM-dd'})
+	    }
+	    } else {
+	    var startTime = $("#countTimestart").val();
+	    if (startTime != "") {
+	    WdatePicker({dateFmt: 'yyyy-MM-dd', minDate: startTime})
+	    } else {
+	    WdatePicker({dateFmt: 'yyyy-MM-dd'})
+	    }
+	    }
+	    }
+	</script>
+    </head>
+    <body>
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 员工管理 <span class="c-gray en">&gt;</span> 员工列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<div class="page-container"> 
+	    <!-- <div class="text-c"> 日期范围：
+		      <input type="text" onfocus="selecttime()" id="datemin" class="input-text Wdate" style="width:120px;">
+		      -
+		      <input type="text" onfocus="selecttime()" id="datemax" class="input-text Wdate" style="width:120px;">
+		      <input type="text" class="input-text" style="width:250px" placeholder="输入管理员名称" id="" name="">
+		      <button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜用户</button>
+		  </div>-->
+	    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><!--<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>--> <a href="javascript:;" onclick="OnPage('添加管理员', '/main/uadpage', '800', '600')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加管理员</a></span> <span class="r">共有数据：<strong>{$count}</strong> 条</span> </div>
+	    <table id="table-sort" class="table table-border table-bordered table-bg">
+		<thead>
+		    <tr>
+			<th scope="col" colspan="20">员工列表</th>
+		    </tr>
+		    <tr class="text-c"> 
+			<!--<th width="10"><input type="checkbox" name="" value=""></th>-->
+			<th width="13">ID</th>
+			<th width="50">用户名</th>
+			<!--
+					<th width="40">密码</th>-->
+			<th width="50">手机</th>
+			<!--
+					<th width="40">ip</th>--><!--
+			<th width="40">奖金</th>-->
+			<th width="40">部门</th>
+			<!--
+			<th width="20">公告</th>--> 
+			<!--			<th width="80">退出时间</th>
+					<th width="80">登录时间</th>-->
+			<th width="40">生日</th>
+			<!--
+			<th width="80">邮件</th>--><!--
+			<th width="30">工资</th>
+			<th width="30">业绩</th>--><!--
+			<th width="20">登次</th>-->
+			<th width="250">备注</th>
+			<th width="15">状态</th>
+			<th width="50">操作</th>
+		    </tr>
+		</thead>
+		<tbody>
+
+		    {volist name="list" id="user"}
+		    <tr class="text-c"> 
+			<!--<td><input type="checkbox" value="1" name=""></td>-->
+			<td>{$user.uid}</td>
+			<td>{$user.uname}</td>
+			<!--
+				      <td>{$user.upassword}</td>-->
+			<td>{$user.utel}</td>
+			<!--
+				      <td>{$user.uip}</td>--><!--
+			<td>{$user.isBonus}</td>-->
+			<td>  {if condition="$user.uBid eq '0'"}超级管理员{/if}
+			    {if condition="$user.uBid eq '1'"}咨询部门{/if}
+			    {if condition="$user.uBid eq '2'"}运营部门{/if}
+			    {if condition="$user.uBid eq '3'"}财务部门{/if}
+			    {if condition="$user.uBid eq '4'"}统计部门{/if}
+			    {if condition="$user.uBid eq '5'"}审计部门{/if}
+			</td>
+			<!--
+			<td>{$user.umsg}</td>--> 
+			<!--			<td>{$user.outtime}</td>
+				      <td>{$user.utime}</td>-->
+			<td>{$user.isBirthday}</td>
+			<!--
+			<td>{$user.umaill}</td>--><!--
+			<td>{$user.isWage}</td>
+			<td>{$user.isResults}</td>--><!--
+			<td>{$user.ucount}</td>-->
+			<td>{$user.uinfo}</td>
+			<td class="td-status"> {if condition="$user.islogin eq '1'"}<span class="label radius">禁用</span>{else/}<span class="label label-success radius">已启用</span>{/if} </td>
+			<td class="td-manage">
+
+
+			    <a style="text-decoration:none" onClick="OnPage('用户详细信息', '/main/userinfo?uid={$user.uid}',800,550)" href="javascript:;" title="查看"><i class="Hui-iconfont">&#xe60d;</i></a>
+
+
+			    <a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑', '/useredpg/{$user.uid}', '1', '800', '700')" class="ml-5" style="text-decoration:none"><i  class="Hui-iconfont">&#xe6df;</i></a> 
+
+
+			    {if condition="$user.islogin eq '0'"}
+			    <a class="ml-5" style="text-decoration:none" onClick="admin_stop(this, {$user.uid}, {$user.islogin})" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe706;</i></a> {else/}
+			    <a class="ml-5" onClick="admin_stop(this, {$user.uid}, 1)" href="javascript:;" title="启用" style="text-decoration:none"><i class="Hui-iconfont">&#xe615;</i></a>
+
+			    {/if}
+
+
+			    <a title="删除" href="javascript:;" onclick="admin_del(this, {$user.uid})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+		    </tr>
+		    {/volist}
+		</tbody>
+
+	    </table>
+	</div>
+	<!--_footer 作为公共模版分离出去--> 
+	<script type="text/javascript" src="/statics/jquery/1.9.1/jquery.min.js"></script> 
+	<script type="text/javascript" src="/statics/layer/2.4/layer.js"></script> 
+	<script type="text/javascript" src="/statics/h-ui/js/H-ui.min.js"></script> 
+	<script type="text/javascript" src="/statics/h-ui.admin/js/H-ui.admin.js"></script> 
+	<!--/_footer 作为公共模版分离出去--> 
+
+	<!--请在下方写此页面业务相关的脚本--> 
+	<script type="text/javascript" src="/statics/My97DatePicker/4.8/WdatePicker.js"></script> 
+	<script type="text/javascript" src="/statics/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+	<script type="text/javascript" src="/statics/laypage/1.2/laypage.js"></script> 
+	<script type="text/javascript">
+				/*
+				 参数解释：
+				 title	标题
+				 url		请求的url
+				 id		需要操作的数据id
+				 w		弹出层宽度（缺省调默认值）
+				 h		弹出层高度（缺省调默认值）
+				 */
+				/*管理员-增加*/
+				function admin_add(title, url, w, h) {
+				layer_show(title, url, w, h);
+				}
+				function OnPage(title, url, w, h) {
+				layer_show(title, url, w, h);
+				}
+
+				/*管理员-删除*/
+				function admin_del(obj, id) {
+				layer.confirm('确认要删除吗？', function (index) {
+				$.ajax({
+				type: 'POST',
+					url: '/main/userdel/',
+					//dataType: 'json',
+					data: {"userid": id},
+					success: function (data) {
+					$(obj).parents("tr").remove();
+					layer.msg('已删除!', {icon: 1, time: 1000});
+					},
+					error: function (data) {
+					console.log(data.msg);
+					},
+				});
+				});
+				}
+
+				/*管理员-编辑*/
+				function admin_edit(title, url, id, w, h) {
+				layer_show(title, url, w, h);
+				}
+				/*管理员-停用*/
+				function admin_stop(obj, id, ids) {
+				layer.confirm('确认要停用吗？', function (index) {
+				//此处请求后台程序，下方是成功后的前台处理……
+				$.ajax({
+				type: 'POST',
+					url: '/main/userisL/',
+					//dataType: 'json',
+					data: {"userid": id, "isl":ids},
+					success: function (data) {
+					$(obj).parents("tr").remove();
+					layer.msg('已更新!', {icon: 1, time: 1000});
+					layer.location.reload();
+					},
+					error: function (data) {
+					console.log(data.msg);
+					},
+				});
+				$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_start(this,{$user.uid},0)" href="javascript:;" title="启用" style="text-decoration:none"><i class="Hui-iconfont">&#xe615;</i></a>');
+				$(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已禁用</span>');
+				$(obj).remove();
+				layer.msg('已停用!', {icon: 5, time: 1000});
+				});
+				}
+
+				/*管理员-启用*/
+				function admin_start(obj, id, ids) {
+				layer.confirm('确认要启用吗？', function (index) {
+				//此处请求后台程序，下方是成功后的前台处理……
+
+				$.ajax({
+				type: 'POST',
+					url: '/main/userisL/',
+					//dataType: 'json',
+					data: {"userid": id, "isl":ids},
+					success: function (data) {
+					$(obj).parents("tr").remove();
+					layer.msg('已更新!', {icon: 1, time: 1000});
+					layer.location.reload();
+					},
+					error: function (data) {
+					console.log(data.msg);
+					},
+				});
+				$(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_stop(this,{$user.uid},1)" href="javascript:;" title="停用" style="text-decoration:none"><i class="Hui-iconfont">&#xe631;</i></a>');
+				$(obj).parents("tr").find(".td-status").html('<span class="label label-success radius">已启用</span>');
+				$(obj).remove();
+				layer.msg('已启用!', {icon: 6, time: 1000});
+				});
+				}
+				
+				
+				
+				
+				
+				
+////////////////////////ajax测试//////////////////////////
+aa();
+function aa(){
+    $.ajax({  
+          type: "POST",  
+                url: "/main/account_js?logmin=2017-04-06&logmax=2017-04-06",  
+                dataType: 'json',          
+                success: function(msg){   
+        $("#table-sort").dataTable({  
+            "aaData": eval(msg.data.data),  //需要展示数据数组  
+            "aoColumns" : [{"mDataProp" : "id"},{"mDataProp" : "Cdata"},
+		{"mDataProp":"Zx"},
+		{"mDataProp":"Djls"},
+		{"mDataProp":"Xf"},
+		{"mDataProp":"Djl"},
+		{"mDataProp":"Jj"},
+		{"mDataProp":"Fwls"},
+		{"mDataProp":"Fwl"},
+		{"mDataProp":"Ly"},
+		{"mDataProp":"xmId"}
+	
+	],
+            "fnRowCallback": function( nRow, aData, iDisplayIndex ) {  
+                 
+                return nRow;  
+            },  
+            "bAutoWidth": true, //自适应宽度  
+            "sPaginationType" : "full_numbers",  
+            "oLanguage" : {  
+                "sProcessing" : "正在加载中......",  
+                "sLengthMenu" : "每页显示 _MENU_ 条记录",  
+                "sZeroRecords" : "正在加载中......",  
+                "sEmptyTable" : "表中无数据存在！",  
+                "sInfo" : "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",  
+                "sInfoEmpty" : "显示0到0条记录",  
+                "sInfoFiltered" : "数据表中共为 _MAX_ 条记录",  
+                "sSearch" : "搜索",  
+                "oPaginate" : {  
+                    "sFirst" : "首页",  
+                    "sPrevious" : "上一页",  
+                    "sNext" : "下一页",  
+                    "sLast" : "末页"  
+                }  
+            }  
+        });  
+        }  
+    });  
+	    window.alert("111");
+
+}			
+				
+				
+	</script>
+    <script type='text/javascript' src='/statics/h-ui.admin/js/comm.js'></script> 
+</body>
+</html>

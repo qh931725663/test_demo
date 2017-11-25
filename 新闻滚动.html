@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #div-1{
+            width:200px;
+            height:30px;
+            background:gray;
+            margin:20px auto;
+            overflow: hidden;
+            position:relative;
+        }
+        ul#ul-1{
+            width:200px;
+            height:100px;
+            padding-left:5px;
+        }
+        ul li{
+            list-style: none;
+            height:30px;
+            width:200px;
+            text-align:center;
+            line-height:30px;
+            color:white;
+            font-size:10px ;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="div-1">
+    <ul id="ul-1">
+        <li>全国高校信息综合查询系统为</li>
+        <li>教育部指定的学历查询唯一网</li>
+        <li>2017年3月29日 - 3月29日</li>
+        <li>探索仿真技术辅助专业教学</li>
+    </ul>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+$(function(){
+    var timer="";
+    $("#ul-1 li").hover(function(){
+        clearInterval(timer);
+    });
+    $("#ul-1 li").mouseleave(function(){
+        timer =setInterval(function(){
+            $("#ul-1").append($("#ul-1 li").first().animate({height:"0"},100));
+            $("#ul-1").append($("#ul-1 li").last().animate({height:"30px"},100));
+        },1000);
+    });
+});
+</script>
+</body>
+</html>

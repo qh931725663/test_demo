@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div1{width: 100px;height:100px;background: red;}
+        .fade-transition{transition: 1s all ease;}
+        .fade-enter{opacity: 0;}
+        .fade-leave{opacity: 0;transform:translateX(100px);}
+    </style>
+</head>
+<body>
+<div id="box">
+    <button type="button" @click="toggle">dianji</button>
+    <div v-show="disth" transition="fade" class="div1"></div>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el:'#box',
+        data:{
+            disth:'true'
+        },
+        methods:{
+            toggle(){
+                this.disth=!this.disth;
+            }
+        }
+    });
+</script>
+</body>
+</html>

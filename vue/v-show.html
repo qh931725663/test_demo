@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+</head>
+<body>
+<div id="app">
+    {{message }}<br>
+    <button @click="show(-1)">点击我显示</button>
+    <div v-show="a" style="width: 100px;height: 100px;background: red;"></div>
+</div>
+<div id="app1">
+    <button @contextmenu.prevent="show()">阻止默认行为</button>
+    <button @click.stop="show2()">阻止默认行为</button>
+    <button @click.13="kp()">点击回车</button>
+</div>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+<script>
+    //定义Vue组件
+    new Vue({
+        el: "#app",
+        flag:-1,
+        data: {
+            message: "",
+            a:false
+        },
+        methods:{
+            show:function(){
+                if(this.flag==-1){
+                    this.a=true;
+                    this.flag=1;
+                }else{
+                    this.a=false;
+                    this.flag=-1;
+                }
+            }
+        }
+    });
+
+    //定义Vue组件
+    new Vue({
+        el: "#app1",
+        methods:{
+            show:function(){
+                alert(1);
+               // ev.preventDefault();
+            },
+            show2:function(){
+                alert(2);
+
+            },
+            kp:function(){
+                alert("我是回车键");
+            }
+        }
+    });
+</script>
+</body>
+</html>

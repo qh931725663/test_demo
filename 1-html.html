@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul class="cl-ul">
+    <li data-name="1">1-html</li>
+    <li data-name="2">2-html</li>
+    <li data-name="3">3-html</li>
+</ul>
+<div class="a1"></div>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+$(function(){
+    $(".a1").load("2-html.html");
+    $(".cl-ul").on('click','li',function(){
+        var index=$(this).attr('data-name');
+        if(index==1){
+            $(".a1").load("2-html.html");
+        }else if(index==2){
+            $(".a1").load("3-html.html");
+        }else if(index==3){
+            $(".a1").load("2-html.html");
+        }
+    })
+});
+
+</script>
+</body>
+</html>

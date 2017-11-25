@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="position-nav" style="position: fixed;right:-113px;top:80px;background:green;">
+    <span id="btn-show-hidden" style="position: relative;left: -63px;top:35px;background: red;width: 40px;height:50px; ">&lt;&lt;</span>
+    <li><a href="javascript:void(0)" onclick="window.location.hash='am'">快速定位1</a></li>
+    <li><a href="javascript:void(0)" onclick="window.location.hash='am2'">快速定位2</a></li>
+    <li><a href="javascript:void(0)" onclick="window.location.hash='am3'">快速定位3</a></li>
+</ul>
+
+<div id="am" style="background-color: #FFFF99;height:500px;">我在这呢1！</div>
+<div id="am2" style="background-color: red;height:500px;">我在这呢2！</div>
+<div id="am3" style="background-color: #FFFF99;height:500px;">我在这呢3！</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    var flag=-1;
+    $("#btn-show-hidden").click(function(){
+        if(flag==1){
+            $(this).parent("#position-nav").animate({right: '-113px'}, "slow");
+            flag=-1;
+        }else{
+            debugger;
+            $(this).parent("#position-nav").animate({right: '7px'}, "slow");
+            flag=1;
+        }
+    });
+</script>
+</body>
+</html>

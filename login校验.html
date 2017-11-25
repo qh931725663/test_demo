@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form class="form-action">
+    <span class="mess"></span><br>
+    邮箱：<input id="email" type="text"/><br/>
+    密码：<input id="password" type="password"/><br/>
+    <button id="submit_btn" type="button">提交</button><br/>
+</form>
+<form>
+    密码：<input type="text" id="pwd"/><span id="user_pwd_mes"></span><br/>
+    <button id="btn-save" type="button">提交</button>
+</form>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+
+    $("#btn-save").click(function(){
+        var pwd=/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+        if($("#pwd").val()!="" && !pwd.test($("#pwd").val())){
+            $("#user_pwd_mes").html("6-16位，只能用字母、数字！");
+        }else{
+            $("#user_pwd_mes").html("");
+
+        }
+
+    });
+    // JavaScript Document
+    //支持Enter键登录
+    $(document).keydown(function(e){
+        if($(".bac").length==0)
+        {
+            if(!e) e = window.event;
+            if((e.keyCode || e.which) == 13){
+                var obtnLogin=$("#submit_btn");
+                obtnLogin.focus();
+            }
+        }
+    });
+
+    $(function(){
+        //提交表单
+        $('#submit_btn').click(function(){
+            var message=$(".mess");
+            var myReg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/; //邮件正则
+            if($('#email').val() == ''){
+                message.html('邮箱还没填呢');
+                $('#email').focus();
+            }else if(!myReg.test($('#email').val())){
+                message.html('您的邮箱格式错咯！');
+                $('#email').focus();
+            }else if($('#password').val() == ''){
+                message.html('密码还没填呢！');
+                $('#password').focus();
+            }else{
+                    //ajax提交表单，#login_form为表单的ID。 如：$('#login_form').ajaxSubmit(function(data) { ... });
+                $.ajax({
+                    url:"check",
+                    async: false,
+                    type: "POST",
+                    success: function(html) {
+                        message.html('登录成功咯！  正在为您跳转...','/');
+                    }
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

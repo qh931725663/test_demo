@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>数组去重</title>
+</head>
+<body>
+<sript src="js/jquery-min.js"></sript>
+<script>
+    function quchong(arry){
+        for(var i=0;i<arry.length;i++){//那第一个跟后面其他的作比较，相同的话就删除
+            for(var j=i+1;j<arry.length;j++){
+                debugger;
+                if(arry[i]==arry[j]){
+                    arry.splice(j,1);
+                    j--;
+                }
+            }
+        }
+        return arry;
+    }
+    var shuzu=['a','b','m','e','e','b','c','a','a','c','s'];
+    var arr=quchong(shuzu);
+    console.log(arr);
+</script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="/statics/html5shiv.js"></script>
+	<script type="text/javascript" src="/statics/respond.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="/statics/h-ui/css/H-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="/statics/h-ui.admin/css/H-ui.admin.css" />
+	<link rel="stylesheet" type="text/css" href="/statics/Hui-iconfont/1.0.8/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="/statics/h-ui.admin/skin/default/skin.css" id="skin" />
+	<link rel="stylesheet" type="text/css" href="/statics/h-ui.admin/css/style.css" />
+	<!--[if IE 6]>
+	<script type="text/javascript" src="/statics/DD_belatedPNG_0.0.8a-min.js" ></script>
+	<script>DD_belatedPNG.fix('*');</script>
+	<![endif]-->
+	<title>添加管理员 - 管理员管理</title>
+
+    </head>
+    <body>
+	<script type="text/javascript" src="/statics/My97DatePicker/4.8/WdatePicker.js"></script> 
+	<script type="text/javascript">
+
+	    function selecttime(flag) {
+		if (flag == 1) {
+		    var endTime = $("#birthday").val();
+		    if (endTime != "") {
+			WdatePicker({dateFmt: 'yyyy-MM-dd', maxDate: endTime})
+		    } else {
+			WdatePicker({dateFmt: 'yyyy-MM-dd'})
+		    }
+		} else {
+		    var startTime = $("#birthday").val();
+		    if (startTime != "") {
+			WdatePicker({dateFmt: 'yyyy-MM-dd', minDate: startTime})
+		    } else {
+			WdatePicker({dateFmt: 'yyyy-MM-dd'})
+		    }
+		}
+
+	    }
+
+	</script>
+<nav class="breadcrumb"><i class="Hui-iconfont"></i> 首页 <span class="c-gray en">&gt;</span> 员工管理 <span class="c-gray en">&gt;</span> 新增员工 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont"></i></a></nav>
+	<article class="page-container">
+	    <form class="form form-horizontal" id="form-admin-add">
+
+
+		<div class="row cl">
+		    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
+		    <div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="" id="adminName" name="adminName">
+		    </div>
+		</div>
+		<div class="row cl">
+		    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>初始密码：</label>
+		    <div class="formControls col-xs-8 col-sm-9">
+			<input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="password" name="password">
+		    </div>
+		</div>
+		<div class="row cl">
+		    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>确认密码：</label>
+		    <div class="formControls col-xs-8 col-sm-9">
+			<input type="password" value="" class="input-text" autocomplete="off"  placeholder="确认新密码" id="password2" name="password2">
+		    </div>
+		</div>
+		<!--<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
+			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+				<div class="radio-box">
+					<input name="sex" type="radio" id="sex-1" checked>
+					<label for="sex-1">男</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-2" name="sex">
+					<label for="sex-2">女</label>
+				</div>
+			</div>
+		</div>-->
+		<div class="row cl">
+		    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
+		    <div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="" id="phone" name="phone">
+		    </div>
+		</div>
+		<div class="row cl">
+		    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
+		    <div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="@" name="email" id="email">
+		    </div>
+		</div>
+		<div class="row cl">
+		    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>生日：</label>
+		    <div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text"  onClick="selecttime(1)" value="" placeholder="0000-00-00" name="birthday" id="birthday">
+		    </div>
+		</div>
+		<div class="row cl">
+		    <label class="form-label col-xs-4 col-sm-3">角色：</label>
+		    <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
+			    <select class="select" name="adminRole" size="1">
+				<option value="">请选择</option>
+				<option value="0">管理员</option>
+				<option value="1">咨询</option>
+				<option value="2">运营</option>
+				<option value="3">财务</option>
+				<option value="4">统计</option>
+				<option value="5">审计</option>
+			    </select>
+			</span> </div>
+		</div>
+		<div class="row cl">
+		    <label class="form-label col-xs-4 col-sm-3">备注：</label>
+		    <div class="formControls col-xs-8 col-sm-9">
+			<textarea name="uinfo" cols="" rows="" class="textarea"  placeholder="说点什么...100个字符以内" dragonfly="true" onKeyUp="$.Huitextarealength(this, 100)"></textarea>
+			<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+		    </div>
+		</div>
+		<div class="row cl">
+		    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+			<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+		    </div>
+		</div>
+		<input name="msg" value="0" type="hidden"/>
+		<input name="islogin" value="0" type="hidden"/>
+		<input name="isBonus" value="0" type="hidden"/>
+		<input name="isWage" value="0" type="hidden"/>
+		<input name="isResults" value="0" type="hidden"/>
+		<input name="ucount" value="0" type="hidden"/>
+		<input name="xmId" value="0" type="hidden"/>
+	    </form>
+	</article>
+
+	<!--_footer 作为公共模版分离出去--> 
+	<script type="text/javascript" src="/statics/jquery/1.9.1/jquery.min.js"></script> 
+	<script type="text/javascript" src="/statics/layer/2.4/layer.js"></script>
+	<script type="text/javascript" src="/statics/h-ui/js/H-ui.min.js"></script> 
+	<script type="text/javascript" src="/statics/h-ui.admin/js/H-ui.admin.js"></script>
+	<!--/_footer 作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	<script type="text/javascript" src="/statics/jquery.validation/1.14.0/jquery.validate.js"></script> 
+	<script type="text/javascript" src="/statics/jquery.validation/1.14.0/validate-methods.js"></script> 
+	<script type="text/javascript" src="/statics/jquery.validation/1.14.0/messages_zh.js"></script> 
+
+	<script type="text/javascript">
+			    $(function () {
+				$('.skin-minimal input').iCheck({
+				    checkboxClass: 'icheckbox-blue',
+				    radioClass: 'iradio-blue',
+				    increaseArea: '20%'
+				});
+
+				$("#form-admin-add").validate({
+				    rules: {
+					adminName: {
+					    required: true,
+					    minlength: 2,
+					    maxlength: 16
+					},
+					password: {
+					    required: true,
+					},
+					password2: {
+					    required: true,
+					    equalTo: "#password"
+					},
+					sex: {
+					    required: true,
+					},
+					phone: {
+					    required: true,
+					    isPhone: true,
+					},
+					email: {
+					    required: true,
+					    email: true,
+					},
+					birthday: {
+					    required: true,
+					},
+					adminRole: {
+					    required: true,
+					},
+				    },
+				    messages: {
+					adminName: "请输入您的名字",
+					adminName: {
+					    required: "请输入用户名",
+					    minlength: "用户名必需由两个字母组成"
+					},
+					password: {
+					    required: "请输入密码",
+					    minlength: "密码长度不能小于 5 个字母"
+					},
+					password2: {
+					    required: "请输入密码",
+					    minlength: "密码长度不能小于 5 个字母",
+					    equalTo: "两次密码输入不一致"
+					},
+					email: "请输入一个正确的邮箱",
+					birthday: "请输入一个正确的生日",
+					phone: "请输入一个正确的手机号码",
+					adminRole: "请选择权限"
+				    },
+				    onkeyup: false,
+				    focusCleanup: true,
+				    //success:"valid",
+				    submitHandler: function (form) {
+					$(form).ajaxSubmit({
+					    type: 'post',
+					    url: "/main/useradd",
+					    success: function (data) {
+							layer.msg('添加员工成功了!', {icon: 1, time: 5000});
+							//页面8秒钟后关闭
+							setTimeout(function () {
+						    parent.layer.close(index);
+							}, 8000);
+					    },
+					    error: function (XmlHttpRequest, textStatus, errorThrown) {
+						//alter(data);
+						layer.msg("添加员工失败了！", {icon: 0, time: 1000});
+					    }
+					});
+					var index = parent.layer.getFrameIndex(window.name);
+					parent.find(".btn-refresh").click();
+				    }
+				});
+			    });
+	</script> 
+	<!--/请在上方写此页面业务相关的脚本-->
+    <script type='text/javascript' src='/statics/h-ui.admin/js/comm.js'></script> 
+</body>
+</html>

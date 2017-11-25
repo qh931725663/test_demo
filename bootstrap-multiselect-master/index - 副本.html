@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title></title>
+        <meta name="robots" content="noindex, nofollow" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+        <link rel="stylesheet" href="docs/css/bootstrap-3.3.2.min.css" type="text/css">
+<!--        <link rel="stylesheet" href="docs/css/bootstrap-example.css" type="text/css">-->
+    <!--    <link rel="stylesheet" href="docs/css/prettify.css" type="text/css">-->
+
+        <script type="text/javascript" src="docs/js/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="docs/js/bootstrap-3.3.2.min.js"></script>
+       <!-- <script type="text/javascript" src="docs/js/prettify.js"></script>-->
+
+        <link rel="stylesheet" href="dist/css/bootstrap-multiselect.css" type="text/css">
+        <script type="text/javascript" src="dist/js/bootstrap-multiselect.js"></script>
+    <body>
+<form action="xx.php">
+	<select id="example-selectAllValue-numeric" multiple="multiple" name="ggg">
+		<option value="1">星期一</option>
+		<option value="2">星期二</option>
+		<option value="3">星期三</option>
+		<option value="4">星期四</option>
+		<option value="5">星期五</option>
+		<option value="6">星期六</option>
+		<option value="6">星期日</option>
+	</select>
+	<button type="submit">提交</button>
+</form>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#example-selectAllValue-numeric').multiselect({
+			includeSelectAllOption: true,
+			selectAllValue: 0,
+			nonSelectedText: '选择',
+			selectAllText: '全选',
+			nSelectedText: '个被选中'
+		});
+	});
+	</script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+</head>
+<body>
+<div id="box">
+    <input type="text" v-model="a">
+    <ul>
+        <li v-for="val in arr | filterBy a">
+            {{val}}
+        </li>
+    </ul>
+</div>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/vue.js"></script>
+<script>
+    //定义Vue组件
+    var vm=new Vue({
+        el:'#box',
+        data:{
+            arr:['width','height','background','orange'],
+            a:''
+        },
+        methods:{
+
+        }
+    });
+</script>
+</body>
+</html>

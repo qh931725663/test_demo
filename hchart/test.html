@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="container" style="min-width:400px;height:400px"></div>
+<script src="../js/jquery-1.11.3.js"></script>
+<script src="highcharts.js"></script>
+<script src="exporting.js"></script>
+
+
+<script>
+    $(function () {
+        $('#container').highcharts({
+            tooltip: {
+                backgroundColor: 'rgba(255,255,255,0.1)',   // 背景颜色
+                borderColor: 'rgba(255,255,255,0.1)',         // 边框颜色
+                borderRadius: 10,             // 边框圆角
+                borderWidth: 3,               // 边框宽度
+                shadow: false,
+                headerFormat: '',
+                pointFormat: '',
+                animation: false               // 是否启用动画效果
+            },
+            title: {
+                text: ''
+            },
+            credits: {
+                enabled:false
+            },
+            exporting: {
+                enabled:false
+            },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: true,
+                        distance: -50,
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'white',
+                            textShadow: '0px 1px 2px red'
+                        }
+                    },
+                }
+            },
+            series: [{
+                type: 'pie',
+                innerSize: '50%',
+                data: [
+                    ['88次', 80],
+                    ['22次', 10],
+                    ['33次', 20]
+                ],
+                colors: ['#F7CE40', '#4DBFEE', '#f85e34']
+            }]
+        });
+    });
+</script>
+</body>
+</html>

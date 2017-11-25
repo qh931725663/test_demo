@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+身份证：<input id="UUserCard" type="text"/>
+性别：<span class="sex"></span>
+年龄：<span class="nl"></span>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+$(function(){
+    $("#UUserCard").keyup(function(){
+        var UUserCard = $("#UUserCard").val();
+        if(UUserCard==""){
+            $(".sex").html("");
+         $(".nl").html("");
+        }
+        if(UUserCard.length==18){
+            //获取出生日期 <br />
+            //UUserCard.substring(6, 10) + &quot;-&quot; + UUserCard.substring(10, 12) + &quot;-&quot; + UUserCard.substring(12, 14); <br />
+            //获取性别 <br />
+            if (parseInt(UUserCard.substr(16, 1)) % 2 == 1) {
+            $(".sex").html("男");
+        } else {
+            $(".sex").html("女");
+        }
+        //获取年龄 <br />
+        var myDate = new Date();
+        var month = myDate.getMonth() + 1;
+        var day = myDate.getDate();
+        var age = myDate.getFullYear() - UUserCard.substring(6, 10) - 1;
+        if (UUserCard.substring(10, 12)<month || UUserCard.substring(10, 12) == month && UUserCard.substring(12, 14) <= day) {
+            age++;
+        }
+        $(".nl").html(age);
+        //年龄 age</p>
+        }else{
+            return;
+        }
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+ 
+</head>
+<body>
+<label class="control-label col-xs-1" for="sel_search_orderstatus3">分组</label>
+<div class="col-xs-2" style="margin-top:7px;">
+    <select id="sel_search_orderstatus3" style="width:150px" multiple="multiple">
+        <optgroup label="未上线">
+            <option value="0">未排产</option>
+        </optgroup>
+        <optgroup label="已上线">
+            <option value="5">已排产</option>
+            <option value="10">已锁定</option>
+            <option value="25">在制</option>
+            <option value="20">订单提交</option>
+        </optgroup>
+        <optgroup label="异常">
+            <option value="30">订单删除</option>
+            <option value="50">订单报废</option>
+        </optgroup>
+    </select>
+</div>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#sel_search_orderstatus3').multipleSelect({
+            placeholder: "请选择"
+        });
+    })
+</script>
+</body>
+</html>

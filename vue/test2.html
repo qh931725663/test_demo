@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <style>
+        [v-cloak]{display: none;}/*防止花括号闪烁*/
+    </style>
+</head>
+<body>
+<div id="app">
+    <table border="1">
+        <tr>
+            <th>序号</th>
+            <th>名称</th>
+        </tr>
+        <tr v-for="(k,v) in datas">
+            <td>{{v+1}}</td>
+            <td>{{k}}</td>
+        </tr>
+    </table>
+</div>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+<script>
+//定义Vue组件
+    var vum=new Vue({
+        el: "#app",
+        data: {
+            message: "",
+            datas: ['科目一','科目二','科目三','科目四']
+
+        },
+        methods:{
+            showData:function () {
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

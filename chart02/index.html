@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>html5曲线柱形统计图表代码 - xw素材网</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript" src="jqplot.js"></script>
+
+</head>
+<body>
+	<div id="chart1"></div>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var data = [[10,20,30,40,50,40,100,150,120,10,20,30,40,50,40,100,150,120],[25,10,8,10,11,22,4,21,6,25,10,8,10,11,22,4,21,6]];
+			var data_max = 250; //Y轴最大刻度
+			var data_min = 50; //Y轴最大刻度
+			var x = [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9]; //定义X轴刻度值
+			var title = "这是标题"; //统计图标标题
+			j.jqplot.diagram.base("chart1", data, "", "", x, "", "", data_max,data_min, 1);
+		});
+	</script>
+</body>
+</html>

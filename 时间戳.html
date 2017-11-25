@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+function time(tim){
+    //return new Date(tim).toLocaleString().split("/").join("-");
+    //return new Date(parseInt(tim)).toLocaleString().split("/").join("-").replace(/:\d{1,3}$/,' '); 
+     ///return new Date(parseInt(tim)).toLocaleString().substr(0,16);
+    var date = new Date(1493203978000); 
+    Y = date.getFullYear() + '-';
+    M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+    D = date.getDate() + ' ';
+    h = date.getHours() + ':';
+    m = date.getMinutes(); 
+     // s = date.getSeconds(); 
+     return Y+M+D+h+m;
+}
+ var ss=time(1493203978000);
+ console.log(ss); 
+</script>
+</body>
+</html>

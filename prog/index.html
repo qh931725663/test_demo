@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="wap-font-scale" content="no">
+<title>首页</title>
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/hidpi-canvas.min.js"></script>
+<script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
+<script type="text/javascript" src="js/cycle.js"></script>
+</head>
+<body>
+    <div class="loadingParent">
+      <canvas id="canvasIndex" width="450" height="225" amount="10000" vote="10000" tip="50">您的浏览器不支持canvas标签，建议使用chrome,firefox,ie10+</canvas>
+    </div>
+    
+    <script>
+	   //圆环进度条
+		$(function(){
+			 var w=$(".loadingParent").width();
+			 var option={percent:80 ,w:200}
+			$("#canvasIndex").audios2(option);
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+/*对象级别的插件开发*/
+(function($){
+    $.fn.extend({
+        time:30,
+        speak:function(sel){
+            alert(sel+this.time+'分');
+        }
+    })
+})(jQuery);

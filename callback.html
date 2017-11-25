@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<button type="button" class="btn">点击我</button>
+<body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    $(function(){
+        aa.clickC();
+    });
+var aa={
+    a:0,
+    clickC:function(){
+        $(".btn").click(function(){
+            alert(aa.a);
+            aa.a++;
+        });
+    }
+
+
+}
+</script>
+</body>
+</html>

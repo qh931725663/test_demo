@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form id="cForm" >
+    <p>
+        <label for="user">用户名</label>
+        <input id="user" name="user" required minlength="3">
+    </p>
+    <p>
+        <label for="password">密码</label>
+        <input id="password" type="password" maxlength="12" name="password">
+    </p>
+    <p>
+
+        <button class="btn">提交</button>
+    </p>
+</form>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+        $(".btn").validate({
+            onsubmit:true,// 是否在提交是验证
+            onfocusout:false,// 是否在获取焦点时验证
+            onkeyup :false,// 是否在敲击键盘时验证
+
+            rules: {　　　　//规则
+                user: {　　//要对应相对应的input中的name属性
+                    required: true
+                },
+                password: {
+                    required: true
+                }
+            },
+            messages:{　　　　//验证错误信息
+                user: {
+                    required: "请输入用户名"
+                },
+                password: {
+                    required: "请输入密码"
+                }
+            },
+            submitHandler: function(form) { //通过之后回调
+//进行ajax传值
+
+                $.ajax({
+                    url : "test4.html",
+                    type : "post",
+                    dataType : "json",
+                    data: {
+                        user: $("#user").val(),
+                        password: $("#password").val()
+                    },
+                    success : function(msg) {
+                        //要执行的代码
+                    }
+                });
+            },
+            invalidHandler: function(form, validator) {return false;}
+        });
+    });
+
+</script>
+</body>
+</html>

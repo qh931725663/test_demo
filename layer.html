@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="layer/skin/layer.css"/>
+</head>
+<body>
+<button type="button" class="btn">点击是否</button>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="layer/js/layer.js"></script>
+<script>
+    $(".btn").on("click", function() {
+        layer.open({
+            shadeClose : false,
+            content : '您是否确定？',
+            btn : [ '是', '否' ],
+            yes:function(index) {
+                layer.close(index);
+                alert("我是是");
+            },
+            no: function(){
+                alert('我是否');
+            }
+
+        });
+    });
+</script>
+</body>
+</html>

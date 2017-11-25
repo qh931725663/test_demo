@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button type="button" id="btn2">免费获取验证码</button>
+<script src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+    $("#btn2").click(function(){
+        mkh.time($(this));
+    });
+    var mkh={
+        wait:30,
+        time:function(o){
+            if (this.wait == 0) {
+                o.attr("disabled",false);
+                o.html("免费获取验证码");
+                this.wait = 30;
+            } else {
+                o.attr("disabled", true);
+                o.html(this.wait+"秒后可以重新发送");
+                this.wait--;
+                setTimeout(function() {
+                    mkh.time(o);},1000)
+            }
+        }
+    };
+
+</script>
+</body>
+</html>

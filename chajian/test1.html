@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button class="btn">点击测试</button>
+<p>点击</p>
+<script src="../js/jquery-1.11.3.js"></script>
+<script src="extend.js"></script>
+<script>
+$(function(){
+    $(".btn").click(function(){
+        var aa=$.min(1,2);
+        alert(aa);
+    });
+});
+
+$("p").click(function (event, message1, message2) {
+    alert(message1 + ' ' + message2);
+}).trigger("click", ["Hello","World!"]);
+</script>
+</body>
+</html>

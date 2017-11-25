@@ -1,0 +1,94 @@
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>城市选择控件</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-appearance: none; //去掉浏览器默认样式
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-touch-callout: none;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0 auto;
+            width: 100%;
+            min-height: 100%;
+            overflow-x: hidden;
+            -webkit-user-select: none;
+        }
+
+        body {
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            -webkit-text-size-adjust: 100%; //关闭自动调整字体
+        -webkit-overflow-scrolling: touch;
+            overflow-scrolling: touch;
+        }
+
+        input {
+            width: 90%;
+            height: 40px;
+            font-size: 18px;
+            border: 1px solid #b72f20;
+            border-radius: 5px;
+            margin: 20px 5% 0 5%;
+            padding: 5px;
+        }
+
+        h1 {
+            background-color: #b72f20;
+            color: #fff;
+            font-size: 25px;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="LArea.css">
+</head>
+
+<body>
+<div>
+    <div class="content-block">
+        <form action="xxx.php">
+        <input id="demo2" name="1001" type="text" placeholder="城市选择特效" />
+<!--
+        <input id="value2"  value="110000"/>
+-->
+    </div>
+    <button type="submit">提交</button>
+    </form>
+</div>
+<script src="LAreaData2.js"></script>
+<script src="LArea.js"></script>
+<script>
+    var provs_data = [
+        {"text":"北京","value":"北京"},
+        {"text":"上海","value":"上海"},
+        {"text":"深圳","value":"深圳"},
+        {"text":"杭州","value":"杭州"}];
+    var area2 = new LArea();
+    area2.init({
+        'trigger': '#demo2',
+        'valueTo': '#demo2',
+        'keys': {
+            id: 'value',
+            name: 'text'
+        },
+        'type': 2,
+        'data': [provs_data]
+    });
+</script>
+</body>
+
+</html>

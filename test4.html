@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width:200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+
+</div>
+
+<input type="text" onkeyup="this.value=this.value.replace(/^\s+|\s+$/g,'')"/>
+<input type="text" onkeyup="this.value=this.value.replace(/^\s+|\s+$/g,'')"/>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+$(function(){
+ $("#div1").mouseenter(function(){
+     $(this).stop().animate({width:"800px"},1000);
+ });
+    $("#div1").mouseleave(function(){
+        $(this).stop().animate({width:"200px"},1000);
+    });
+});
+</script>
+</body>
+</html>
